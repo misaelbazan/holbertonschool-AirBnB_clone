@@ -16,6 +16,9 @@ The purpose of this project is to deploy on our server a simply copy of the AirB
 ## FEATURES
 (PASS)
 
+## HOW TO USE:
+(PASS)
+
 ## TECNOLOGIES USED:
 1.- For console: python
 2.- For storage and communication: JSON, MySQL and RESTful API 
