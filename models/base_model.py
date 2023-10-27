@@ -8,6 +8,7 @@ This module contains 01 Classes:
 from uuid import uuid4
 from datetime import datetime, timezone
 
+
 class BaseModel:
     """
     This class is meant to inherit to the following classes:
@@ -20,11 +21,11 @@ class BaseModel:
         - created_at: datetime - assign with the current datetime when an \
                 instance is created
         - updated_at: datetime - assign with the current datetime when an \
-                instance is created and it will be updated e/t you change your object
+                instance is created and it will be updated e/t
         Methods:
         - __str__: should print '[<class name>] (<self.id>) <self.__dict__>'
         Public instance methods:
-        - save(self): updates the public instance attribute updated_at with the \
+        - save(self): updates the public instance attribute updated_at
                 current datetime
         - to_dict(self): returns a dictionary containing all keys/values of \
                 __dict__ of the instance
@@ -34,10 +35,10 @@ class BaseModel:
         """Initialize a new instance from BaseModel Class
         Variables:
         - id: string - assign with an uuid when an instance is created:
-        - created_at: datetime - assign with the current datetime when an instance\
-                is created
-        - updated_at: datetime - assign with the current datetime when an instance\
-                is created and it will be updated e/t you change your object
+        - created_at: datetime - assign with the current datetime when a
+         instance is created
+        - updated_at: datetime - assign with the current datetime when an
+        instance is created and it will be updated e/t you change your object
         """
         self.id = str(uuid4())
         self.created_at = datetime.now()
@@ -54,8 +55,10 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary containing all keys/values of __dict__ \
                 of the instance"""
-        self.created_at.isoformat()
-        self.__dict__["created_at"] = self.created_at.isoformat()
-        self.__dict__["updated_at"] = self.updated_at.isoformat()
-        self.__dict__["__class__"] = __class__.__name__
+        if hasattr(self, "created_at"):
+            self.created_at = self.created_at.isoformat()
+        if hasattr(self, "updated_at"):
+            self.updated_at = self.updated_at.isoformat()
+        if hasattr(self, "__class__"):
+            self.__dict__["__class__"] = self.__class__.__name__
         return(self.__dict__)
