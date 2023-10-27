@@ -50,7 +50,8 @@ class BaseModel:
 
     def save(self):
         """Updates the updated_at attribute with the current d/t"""
-        self.updated_at = datetime.now()
+        if hasattr(self, "updated_at"):
+            self.updated_at = datetime.now()
 
     def to_dict(self):
         """Returns a dictionary containing all keys/values of __dict__ \
