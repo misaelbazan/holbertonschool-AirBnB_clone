@@ -31,7 +31,7 @@ class BaseModel:
                 __dict__ of the instance
     """
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Initialize a new instance from BaseModel Class
         Variables:
         - id: string - assign with an uuid when an instance is created:
