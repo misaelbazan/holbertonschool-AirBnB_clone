@@ -49,7 +49,8 @@ class BaseModel:
         return(f"[BaseModel] ({self.id}) {self.__dict__}")
 
     def save(self):
-        """Updates the updated_at attribute with the current d/t"""
+        """Updates the updated_at attribute with the current d/t
+        """
         if hasattr(self, "updated_at"):
             self.updated_at = datetime.now()
 
