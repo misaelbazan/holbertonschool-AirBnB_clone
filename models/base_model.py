@@ -6,6 +6,7 @@ This module contains 01 classes:
 
 import uuid
 from datetime import datetime
+from models import storage
 
 
 class BaseModel:
@@ -22,23 +23,26 @@ class BaseModel:
             updated_at - datetime with the current time of updating
         """
         if bool(kwargs):
-            for key, value in kwargs.items():
-                if key != '__class__':
+            for k, v in kwargs.items():
+                if k != '__class__':
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
         """Returns a string in this format:
             BaseModel (uuid4 type id) self.__dict__
         """
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id}) "\
+                + str({k: v for k, v in self.__dict__.items() if k != '__class__'})
 
     def save(self):
-        """This method updates the updated_at """
+        """This method updates the updated_at"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """This method retuns a copy of an instance dictionary"""
