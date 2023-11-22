@@ -1,0 +1,11 @@
+header {
+  background-color: white;
+  height: 70px;
+  width: 100%;
+  border-bottom: 1px solid #CCCCCC;
+}
+header .logo-image {
+  justify-content: left;
+  padding-top: 3px;
+  padding-left: 20px;
+}
