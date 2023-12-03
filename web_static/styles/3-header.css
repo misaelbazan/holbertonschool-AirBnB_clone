@@ -3,9 +3,10 @@ header {
   height: 70px;
   width: 100%;
   border-bottom: 1px solid #CCCCCC;
-}
-header .logo-image {
-  justify-content: left;
-  padding-top: 3px;
-  padding-left: 20px;
+  background-image: url(/web_static/images/logo.png);
+  background-size: 8.3rem;
+  background-position: left;
+  background-position-y: center;
+  background-position-x: 20px;
+  background-repeat: no-repeat;
 }

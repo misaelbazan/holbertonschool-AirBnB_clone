@@ -1,0 +1,28 @@
+.places {
+  display: flex;
+  flex-direction: column;   
+}
+.places .places-title {
+  margin-top: 2.8rem;
+  font-size: 30px;
+}
+article {
+  width: calc(50% - 55px);
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #FF5A5F;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.article-places {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.article-places article:last-child {
+  width: calc(100% - 50%);
+}
+article h2 {
+  font-size: 23px;
+  text-align: center;
+}
