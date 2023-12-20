@@ -69,8 +69,14 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         if not validate_classname(args, check_id=True):
             return
+
         instance_objs = storage.all()
         key = "{}.{}".format(args[0], args[1])
+        req_instance = instance_objs.get(key, None)
+        if req_instance is None:
+            print("** no instance found **")
+            return
+
         del instance_objs[key]
         storage.save()
 
