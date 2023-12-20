@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This module
+This module contains a class: HBNBCommand
 """
 
 import sys
@@ -16,7 +16,7 @@ classes = {"BaseModel": BaseModel}
 
 class HBNBCommand(cmd.Cmd):
     """This class builds a customized cmd from the cmd module and
-    inherits all its attributes and methods.
+    inherits all its attributes and methods by default.
     Attributes:
         prompt - defines a customize prompt
     """
